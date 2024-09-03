@@ -6,6 +6,8 @@ format: docx
 editor: 
   markdown: 
     wrap: 72
+editor_options:
+  chunk_output_type: console
 ---
 
 # Working with Quarto documents in R
@@ -92,6 +94,11 @@ B <- 10
 C<- A + B
 #print the result
 print(C)
+#calculate the mean of the numbers 1,3, 7, 12, 46
+my_numbers<-c(1, 3, 7, 12, 46)
+mean(my_numbers)
+base::mean(my_numbers) # use function mean from package base
+
 ```
 
 ```{r, message = FALSE, warning = FALSE}
@@ -103,8 +110,10 @@ library(tidyverse)
 set.seed(123)
 # generate 100 random values form a normal distribution with mean=0 and standard deviation 1
 randomvalue <- rnorm(n = 100, mean = 0, sd = 1)
+print(randomvalue)
 # convert to a dataframe
 data1<-data.frame(randomvalue)
+print(data1)
 # plot as a histogram
 ggplot2::ggplot(data=data1, 
                 mapping=aes(x=randomvalue)) +
@@ -117,6 +126,8 @@ So the text
 completes it. use the quote that is typically the key below your \<esc\>
 key on your keyboard. To keep your output document clean, you can add
 options to messages and warnings (only add when your codes works well)
+
+then make a plot
 
 ### 4. Redirect the output of a code chunk
 
